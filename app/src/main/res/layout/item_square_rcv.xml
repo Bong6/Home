@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name = "data"
+            type = "com.example.home.database.entity.LocalData"/>
+
+        <variable
+            name = "click"
+            type = "android.view.View.OnClickListener"/>
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/square_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="20dp"
+        android:layout_margin="5dp"
+        android:onClick="@{click}">
+
+
+        <LinearLayout
+            android:id="@+id/square_linear"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/item_square_img"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:scaleType="centerCrop"
+                app:setImageSrcNormal="@{data.imageId}"/>
+
+            <TextView
+                android:id="@+id/item_square_txt"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="5dp"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/black"
+                android:lines="1"
+                android:singleLine="true"
+                android:text="@{data.title}"/>
+
+            <RelativeLayout
+                android:id="@+id/square_relativeLayout_msg"
+                android:layout_width="match_parent"
+                android:layout_height="150dp">
+
+                <ImageView
+                    android:id="@+id/suqare_user_photo"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    app:setImageSrcCircle="@{data.userPhoto}"
+                    android:scaleType="centerCrop"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp" />
+
+                <TextView
+                    android:id="@+id/suqare_user_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:text="@{data.userName}"
+                    android:lines="1"
+                    android:singleLine="true"
+                    android:layout_toEndOf="@+id/suqare_user_photo"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginStart="5dp" />
+
+                <TextView
+                    android:id="@+id/suqare_user_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{data.time}"
+                    android:layout_toEndOf="@+id/suqare_user_photo"
+                    android:layout_below="@+id/suqare_user_name"
+                    android:textSize="12sp"
+                    android:layout_marginStart="5dp" />
+
+            </RelativeLayout>
+
+
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+</layout>

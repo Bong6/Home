@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/square"
+        android:icon="@drawable/icon_main_square_grey"
+        android:title="广场" />
+
+    <item
+        android:id="@+id/encyclopedias"
+        android:icon="@drawable/icon_main_encyclopedias_grey"
+        android:title="百科" />
+
+    <item
+        android:id="@+id/photograph"
+        android:icon="@drawable/icon_main_photo_grey"
+        android:title="识物"  />
+
+    <item
+        android:id="@+id/personal"
+        android:icon="@drawable/icon_main_personal_grey"
+        android:title="我的"  />
+
+</menu>

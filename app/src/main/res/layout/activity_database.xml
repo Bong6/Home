@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <Button
+            android:id="@+id/button_insert_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="插入用户信息数据"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.464"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/button_delete_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="1dp"
+            android:text="删除用户信息数据"
+            app:layout_constraintEnd_toEndOf="@+id/button_insert_user"
+            app:layout_constraintTop_toBottomOf="@+id/button_insert_user" />
+
+        <Button
+            android:id="@+id/button_query_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="查询用户信息数据"
+            app:layout_constraintStart_toStartOf="@+id/button_delete_user"
+            app:layout_constraintTop_toBottomOf="@+id/button_delete_user" />
+
+        <Button
+            android:id="@+id/button_update_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="更新用户信息数据"
+            app:layout_constraintStart_toStartOf="@+id/button_query_user"
+            app:layout_constraintTop_toBottomOf="@+id/button_query_user" />
+
+        <Button
+            android:id="@+id/button_knowledge_insert"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="17dp"
+            android:text="插入百科知识数据"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button_update_user" />
+
+        <Button
+            android:id="@+id/button_knowledge_query"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:text="查询百科知识数据"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button_knowledge_insert" />
+
+        <Button
+            android:id="@+id/button_localdata_insert"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="插入本地数据数据"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button_knowledge_query" />
+
+        <Button
+            android:id="@+id/button_localdata_query"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="查询本地数据数据"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button_localdata_insert" />
+
+        <Button
+            android:id="@+id/button_insert_usercollectionandpublish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="60dp"
+            android:text="插入用户收藏数据"
+            app:layout_constraintBottom_toTopOf="@+id/button_query_usercollectionandpublish_localdata"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.492"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/button_query_usercollectionandpublish_localdata"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="116dp"
+            android:text="查询用户收藏的本地数据"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button_localdata_query" />
+
+        <Button
+            android:id="@+id/button_query_usercollectionandpublish_knowledge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="查询用户收藏的百科数据"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button_query_usercollectionandpublish_localdata" />
+
+        <Button
+            android:id="@+id/button_query_usercollectionandpublish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="40dp"
+            android:text="查询用户收藏数据"
+            app:layout_constraintEnd_toEndOf="@+id/button_insert_usercollectionandpublish"
+            app:layout_constraintTop_toBottomOf="@+id/button_insert_usercollectionandpublish" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

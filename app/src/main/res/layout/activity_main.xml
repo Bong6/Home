@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="670dp"
+            android:orientation="vertical">
+
+            <!--标题栏 开始 -->
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/main_appBarLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fitsSystemWindows="true">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/main_toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:layout_collapseMode="pin"
+                    app:tabGravity="fill"
+                    app:tabMode="fixed"
+                    android:background="?attr/colorPrimary"
+                    android:minHeight="?attr/actionBarSize"
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                    app:layout_scrollFlags="scroll|enterAlways|snap"
+                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+            </com.google.android.material.appbar.AppBarLayout>
+            <!--标题栏 结束 -->
+
+            <!--fragment 开始 -->
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+                <fragment
+                    android:id="@+id/nav_host_fragment"
+                    android:name="androidx.navigation.fragment.NavHostFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:defaultNavHost="true"
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                    app:navGraph="@navigation/mobile_navigation" />
+
+            </androidx.core.widget.NestedScrollView>
+            <!--fragment 结束 -->
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+        <!--底部导航栏 开始 -->
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/main_btn_nav"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="?android:attr/windowBackground"
+            app:itemIconTint="@color/selector_color"
+            app:itemTextColor="@color/selector_color"
+            app:labelVisibilityMode="labeled"
+            app:menu="@menu/bottom_nav_menu"
+            tools:ignore="MissingClass" />
+        <!--底部导航栏 结束 -->
+
+    </LinearLayout>
+
+
+</layout>

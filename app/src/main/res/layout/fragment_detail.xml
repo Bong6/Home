@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="detail_data"
+            type="com.example.home.database.entity.LocalData" />
+    </data>
+
+
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!--详情图片 开始 -->
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:src="@mipmap/image_all_ocean"
+                android:scaleType="centerCrop"
+                app:setImageSrcNormal="@{detail_data.imageId}"/>
+            <!--详情图片 结束 -->
+
+
+            <!--用户信息 开始 -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+                <ImageView
+                    android:id="@+id/detail_user_photo"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:scaleType="centerCrop"
+                    app:setImageSrcCircle="@{detail_data.userPhoto}" />
+
+                <TextView
+                    android:id="@+id/detail_user_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_toEndOf="@+id/detail_user_photo"
+                    android:lines="1"
+                    android:singleLine="true"
+                    android:text="@{detail_data.userName}"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/detail_user_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/detail_user_name"
+                    android:layout_marginStart="5dp"
+                    android:layout_toEndOf="@+id/detail_user_photo"
+                    android:text="@{detail_data.time}"
+                    android:textSize="12sp" />
+
+            </RelativeLayout>
+            <!--用户信息 结束 -->
+
+            <!--文章信息 开始 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:text="@{detail_data.title}"
+                    android:layout_gravity="center"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{detail_data.describe}"
+                    android:textSize="14sp"/>
+
+            </LinearLayout>
+            <!--文章信息 结束 -->
+
+
+
+        </LinearLayout>
+
+
+
+
+
+</layout>

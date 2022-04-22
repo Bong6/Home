@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/square"
+    tools:ignore="UnusedNavigation">
+
+    <fragment
+        android:id="@+id/square"
+        android:name="com.example.home.ui.suqare.SquareFragment"
+        android:label="广场"
+        tools:layout="@layout/fragment_square" >
+
+        <action
+            android:id="@+id/action_square_to_detail"
+            app:destination="@id/detail"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/encyclopedias"
+        android:name="com.example.home.ui.encyclopedias.EncyclopediasFragment"
+        android:label="百科"
+        tools:layout="@layout/fragment_encyclopedias" />
+
+    <fragment
+        android:id="@+id/photograph"
+        android:name="com.example.home.ui.photo.PhotographFragment"
+        android:label="拍照"
+        tools:layout="@layout/fragment_photograph" />
+
+    <fragment
+        android:id="@+id/personal"
+        android:name="com.example.home.ui.personal.PersonalFragment"
+        android:label="我的"
+        tools:layout="@layout/fragment_personal" />
+
+    <fragment
+        android:id="@+id/detail"
+        android:name="com.example.home.ui.suqare.DetailFragment"
+        android:label="详情">
+
+        <argument
+            android:name="data"
+            app:argType="com.example.home.database.entity.LocalData" />
+
+    </fragment>
+
+
+</navigation>

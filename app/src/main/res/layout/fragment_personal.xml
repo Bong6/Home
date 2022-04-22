@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="user"
+            type="com.example.home.database.entity.User" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!--顶部个人信息 开始-->
+        <RelativeLayout
+            android:id="@+id/personal_relativeLayout_top"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:background="@mipmap/image_all_ocean">
+
+            <ImageView
+                android:id="@+id/personal_msg_bgimg"
+                android:layout_width="match_parent"
+                android:layout_height="150dp" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                app:cardElevation="10dp"
+                app:cardCornerRadius="15dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="80dp"
+                android:layout_marginBottom="10dp">
+
+                <RelativeLayout
+                    android:id="@+id/personal_relativeLayout_msg"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp">
+
+                    <ImageView
+                        android:id="@+id/user_photo"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        app:setImageSrcCircle="@{user.userPhoto}"
+                        android:scaleType="centerCrop"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp" />
+
+                    <TextView
+                        android:id="@+id/user_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:text="@{user.userName}"
+                        android:layout_toRightOf="@+id/user_photo"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginLeft="10dp" />
+
+                    <TextView
+                        android:id="@+id/user_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{user.registerTime}"
+                        android:layout_toRightOf="@+id/user_photo"
+                        android:layout_below="@+id/user_name"
+                        android:textSize="12sp"
+                        android:layout_marginLeft="10dp" />
+
+                    <LinearLayout
+                        android:id="@+id/user_msg"
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:layout_alignParentBottom="true"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/personal_publish_times"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@{String.valueOf(user.publishAccount)}"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="20dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="发表"
+                                android:layout_gravity="center" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/personal_collection_times"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@{String.valueOf(user.collectionAccount)}"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="20dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="收藏"
+                                android:layout_gravity="center" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/personal_scanning_times"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@{String.valueOf(user.scanningAccount)}"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="20dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="识别"
+                                android:layout_gravity="center" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </RelativeLayout>
+        <!--顶部个人信息 结束-->
+
+        <!--底部识别记录 开始-->
+        <RelativeLayout
+            android:id="@+id/personal_relativeLayout_record"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:layout_below="@+id/personal_relativeLayout_top">
+
+            <ImageView
+                android:id="@+id/personal_record_img"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/icon_personal_historicalrecords"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="10dp"/>
+
+            <TextView
+                android:id="@+id/personal_record_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="识别记录"
+                android:textSize="16sp"
+                android:layout_marginTop="20dp"
+                android:layout_toRightOf="@+id/personal_record_img" />
+
+            <ImageView
+                android:id="@+id/personal_notfind_img"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_below="@+id/personal_record_txt"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="124dp"
+                android:layout_marginEnd="120dp"
+                android:src="@drawable/icon_personal_norecord" />
+
+            <TextView
+                android:id="@+id/personal_notfind_txt"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/personal_notfind_img"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="120dp"
+                android:text="您还没有识别记录"
+                android:textSize="12sp" />
+
+        </RelativeLayout>
+        <!--底部识别记录  结束-->
+
+    </RelativeLayout>
+</layout>
