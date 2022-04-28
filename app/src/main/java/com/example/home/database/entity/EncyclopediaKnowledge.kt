@@ -1,8 +1,10 @@
 package com.example.home.database.entity
 
+import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import kotlinx.parcelize.Parcelize
 
 
 /*
@@ -22,45 +24,27 @@ import androidx.room.PrimaryKey
     @Date 2022-04-15 17:08
 */
 
+@Parcelize
 @Entity(tableName = "encyclopediaknowledge")
-class EncyclopediaKnowledge() {
+class EncyclopediaKnowledge(
     @PrimaryKey
     @ColumnInfo(name = "encyclopediaknowledge_id",typeAffinity = ColumnInfo.INTEGER)
-    var encyclopediaknowledge_id : Int = 0
+    var encyclopediaknowledge_id : Int,
     @ColumnInfo(name = "imageId",typeAffinity = ColumnInfo.INTEGER)
-    var imageId : Int = 0
+    var imageId : Int,
     @ColumnInfo(name = "sickName",typeAffinity = ColumnInfo.TEXT)
-    var sickName : String = ""
+    var sickName : String,
     @ColumnInfo(name = "symptom",typeAffinity = ColumnInfo.TEXT)
-    var symptom : String = ""
+    var symptom : String,
     @ColumnInfo(name = "popularCharacteristics",typeAffinity = ColumnInfo.TEXT)
-    var popularCharacteristics : String = ""
+    var popularCharacteristics : String,
     @ColumnInfo(name = "preventionMethods",typeAffinity = ColumnInfo.TEXT)
-    var preventionMethods : String = ""
+    var preventionMethods : String,
     @ColumnInfo(name = "time",typeAffinity = ColumnInfo.TEXT)
-    var time : String = ""
-
-    constructor(
-        encyclopediaknowledge_id: Int,
-        imageId: Int,
-        sickName: String,
-        symptom: String,
-        popularCharacteristics: String,
-        preventionMethods: String,
-        time: String
-    ) : this() {
-        this.encyclopediaknowledge_id = encyclopediaknowledge_id
-        this.imageId = imageId
-        this.sickName = sickName
-        this.symptom = symptom
-        this.popularCharacteristics = popularCharacteristics
-        this.preventionMethods = preventionMethods
-        this.time = time
-    }
+    var time : String,
+) : Parcelable {
 
     override fun toString(): String {
         return "EncyclopediaKnowledge(encyclopediaknowledge_id=$encyclopediaknowledge_id, imageId=$imageId, sickName='$sickName', symptom='$symptom', popularCharacteristics='$popularCharacteristics', preventionMethods='$preventionMethods', time='$time')"
     }
-
-
 }

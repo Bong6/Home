@@ -25,6 +25,8 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
+import com.example.home.MainActivity
+import com.example.home.base.BaseFragment
 import com.example.home.databinding.FragmentPhotographBinding
 import com.example.home.test.Case24
 import java.io.File
@@ -38,7 +40,7 @@ import java.io.IOException
     @Date 2022-03-26 0:10
 */
 
-class PhotographFragment : Fragment() {
+class PhotographFragment : BaseFragment() {
 
     //拍照
     private var imageUri: Uri? = null
@@ -71,12 +73,12 @@ class PhotographFragment : Fragment() {
         binding = FragmentPhotographBinding.inflate(inflater,container,false)
 
 
-        binding.takePhoto.setOnClickListener {
+        binding.photographTakePhoto.setOnClickListener {
             //请求相机权限
             requestPermission(TAKE_PHOTO)
         }
 
-        binding.usePhoto.setOnClickListener {
+        binding.photographUsePhoto.setOnClickListener {
             //请求相册权限
             requestPermission(CHOOSE_PHOTO)
         }
@@ -94,6 +96,10 @@ class PhotographFragment : Fragment() {
         //取出上次存储的图片路径设置此次的图片展示
         val beforeImagePath = sp.getString("imgPath", null)
         displayImage(beforeImagePath)
+
+
+        setMainScrollToolBar(1)
+
     }
 
 

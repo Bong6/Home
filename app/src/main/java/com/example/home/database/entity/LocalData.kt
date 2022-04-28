@@ -1,11 +1,10 @@
 package com.example.home.database.entity
 
-import android.os.Parcel
 import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 
 
 /*
@@ -25,79 +24,43 @@ import kotlinx.android.parcel.Parcelize
 */
 
 
+@Parcelize
 @Entity(tableName = "localdata")
-class LocalData () : Parcelable{
-
+class LocalData (
    @PrimaryKey
    @ColumnInfo(name = "recordId",typeAffinity = ColumnInfo.INTEGER)
-   var recordId : Int = 0
+   var recordId : Int,
    @ColumnInfo(name = "imageId",typeAffinity = ColumnInfo.INTEGER)
-   var imageId : Int = 0
+   var imageId : Int,
    @ColumnInfo(name = "userId",typeAffinity = ColumnInfo.INTEGER)
-   var userId : Int = 0
+   var userId : Int,
    @ColumnInfo(name = "userPhoto",typeAffinity = ColumnInfo.INTEGER)
-   var userPhoto : Int = 0
+   var userPhoto : Int,
    @ColumnInfo(name = "userName",typeAffinity = ColumnInfo.TEXT)
-   var userName : String = ""
+   var userName : String,
    @ColumnInfo(name = "time",typeAffinity = ColumnInfo.TEXT)
-   var time : String = ""
+   var time : String,
    @ColumnInfo(name = "title",typeAffinity = ColumnInfo.TEXT)
-   var title : String = ""
+   var title : String,
    @ColumnInfo(name = "describe",typeAffinity = ColumnInfo.TEXT)
-   var describe : String = ""
-
+   var describe : String,
    @ColumnInfo(name = "answerOne",typeAffinity = ColumnInfo.TEXT)
-   var answerOne : String = ""
+   var answerOne : String,
    @ColumnInfo(name = "answererOne",typeAffinity = ColumnInfo.TEXT)
-   var answererOne : String = ""
+   var answererOne : String,
    @ColumnInfo(name = "answerOnePhoto",typeAffinity = ColumnInfo.INTEGER)
-   var answerOnePhoto : Int = 0
+   var answerOnePhoto : Int,
    @ColumnInfo(name = "answerOneTime",typeAffinity = ColumnInfo.TEXT)
-   var answerOneTime : String = ""
+   var answerOneTime : String,
    @ColumnInfo(name = "answerTwo",typeAffinity = ColumnInfo.TEXT)
-   var answerTwo : String = ""
+   var answerTwo : String,
    @ColumnInfo(name = "answererTwo",typeAffinity = ColumnInfo.TEXT)
-   var answererTwo : String = ""
+   var answererTwo : String,
    @ColumnInfo(name = "answerTwoPhoto",typeAffinity = ColumnInfo.INTEGER)
-   var answerTwoPhoto : Int = 0
+   var answerTwoPhoto : Int,
    @ColumnInfo(name = "answerTwoTime",typeAffinity = ColumnInfo.TEXT)
-   var answerTwoTime : String = ""
-
-   constructor(
-      recordId: Int,
-      imageId: Int,
-      userId: Int,
-      userPhoto : Int,
-      userName : String,
-      time: String,
-      title: String,
-      describe: String,
-      answerOne : String,
-      answererOne : String,
-      answerOnePhoto : Int,
-      answerOneTime : String,
-      answerTwo : String,
-      answererTwo : String,
-      answerTwoPhoto : Int,
-      answerTwoTime : String
-   ) : this() {
-      this.recordId = recordId
-      this.imageId = imageId
-      this.userId = userId
-      this.userPhoto = userPhoto
-      this.userName = userName
-      this.time = time
-      this.title = title
-      this.describe = describe
-      this.answerOne = answerOne
-      this.answererOne = answererOne
-      this.answerOnePhoto = answerOnePhoto
-      this.answerOneTime = answerOneTime
-      this.answerTwo = answerTwo
-      this.answererTwo = answererTwo
-      this.answerTwoPhoto = answerTwoPhoto
-      this.answerTwoTime = answerTwoTime
-   }
+   var answerTwoTime : String,
+        ) : Parcelable {
 
    override fun toString(): String {
       return "LocalData(recordId=$recordId, imageId=$imageId, userId=$userId, userPhoto=$userPhoto, userName='$userName', time='$time', title='$title', describe='$describe', answerOne='$answerOne', answererOne='$answererOne', answerOnePhoto=$answerOnePhoto, answerOneTime='$answerOneTime', answerTwo='$answerTwo', answererTwo='$answererTwo', answerTwoPhoto=$answerTwoPhoto, answerTwoTime='$answerTwoTime')"
@@ -105,52 +68,52 @@ class LocalData () : Parcelable{
 
 
    //序列化
-   private var `in`: Parcel
-      get() {
-         return `in`
-      }
-   set(value) {
-      `in` = value
-   }
+//   private var `in`: Parcel
+//      get() {
+//         return `in`
+//      }
+//   set(value) {
+//      `in` = value
+//   }
+//
+//   constructor(`in`: Parcel) : this(){
+//      this.`in` = `in`
+//   }
+//
+//
+//   override fun describeContents(): Int {
+//      return 0
+//   }
 
-   constructor(`in`: Parcel) : this(){
-      this.`in` = `in`
-   }
-
-
-   override fun describeContents(): Int {
-      return 0
-   }
-
-   override fun writeToParcel(out: Parcel?, flags: Int) {
-      out?.writeInt(recordId)
-      out?.writeInt(imageId)
-      out?.writeInt(userId)
-      out?.writeInt(userPhoto)
-      out?.writeString(userName)
-      out?.writeString(time)
-      out?.writeString(title)
-      out?.writeString(describe)
-      out?.writeString(answerOne)
-      out?.writeString(answererOne)
-      out?.writeInt(answerOnePhoto)
-      out?.writeString(answerOneTime)
-      out?.writeString(answerTwo)
-      out?.writeString(answererTwo)
-      out?.writeInt(answerTwoPhoto)
-      out?.writeString(answerTwoTime)
-   }
-
-
-   companion object CREATOR: Parcelable.Creator<LocalData?> {
-
-      override fun newArray(size: Int): Array<LocalData?> {
-         return arrayOfNulls(size)
-      }
-
-      override fun createFromParcel(p0: Parcel): LocalData {
-         return LocalData(p0)
-      }
-   }
+//   override fun writeToParcel(out: Parcel?, flags: Int) {
+//      out?.writeInt(recordId)
+//      out?.writeInt(imageId)
+//      out?.writeInt(userId)
+//      out?.writeInt(userPhoto)
+//      out?.writeString(userName)
+//      out?.writeString(time)
+//      out?.writeString(title)
+//      out?.writeString(describe)
+//      out?.writeString(answerOne)
+//      out?.writeString(answererOne)
+//      out?.writeInt(answerOnePhoto)
+//      out?.writeString(answerOneTime)
+//      out?.writeString(answerTwo)
+//      out?.writeString(answererTwo)
+//      out?.writeInt(answerTwoPhoto)
+//      out?.writeString(answerTwoTime)
+//   }
+//
+//
+//   companion object CREATOR: Parcelable.Creator<LocalData?> {
+//
+//      override fun newArray(size: Int): Array<LocalData?> {
+//         return arrayOfNulls(size)
+//      }
+//
+//      override fun createFromParcel(p0: Parcel): LocalData {
+//         return LocalData(p0)
+//      }
+//   }
 
 }

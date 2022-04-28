@@ -7,6 +7,10 @@
         <variable
             name="knowledge"
             type="com.example.home.database.entity.EncyclopediaKnowledge" />
+
+        <variable
+            name="click"
+            type="android.view.View.OnClickListener" />
     </data>
 
     <LinearLayout
@@ -85,7 +89,8 @@
                 android:layout_marginLeft="30dp"
                 android:layout_marginBottom="20dp"
                 app:cardElevation="10dp"
-                app:cardCornerRadius="15dp">
+                app:cardCornerRadius="15dp"
+                android:onClick="@{click}">
 
                 <ImageView
                     android:layout_width="match_parent"

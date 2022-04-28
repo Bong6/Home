@@ -29,16 +29,6 @@
 
         <activity android:name=".MainActivity"
             android:exported="true">
-
-        </activity>
-
-        <activity android:name=".DataBaseActivity"
-            android:exported="true">
-        </activity>
-
-        <activity android:name=".test.TestActivity"
-            android:exported="true"
-            android:theme="@style/TestActivityTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -46,11 +36,12 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".ui.squaredetail.SquareDetailActivity"
+            android:exported="true"
+            android:theme="@style/TestActivityTheme"/>
 
-        <activity android:name=".test.TestActivity2"
-            android:exported="true">
-
-        </activity>
+        <activity android:name=".ui.encyclopediasdetail.EncyclopediasDetailActivity"
+            android:exported="true"/>
 
 
         <!-- 为调用相机拍照设置内容提供者 -->
@@ -63,6 +54,14 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
+
+
+
+
+        <activity android:name=".DataBaseActivity"
+            android:exported="true">
+        </activity>
+
 
     </application>
 

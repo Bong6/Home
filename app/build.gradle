@@ -1,9 +1,10 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id("kotlin-parcelize")
 }
 apply plugin: 'kotlin-kapt'
-apply plugin: 'kotlin-android-extensions'
+//apply plugin: 'kotlin-android-extensions'
 apply plugin: "androidx.navigation.safeargs.kotlin"
 
 
@@ -82,4 +83,6 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:3.0.1'
     //协同布局
     implementation("androidx.coordinatorlayout:coordinatorlayout:1.2.0")
+    //Gson
+    implementation 'com.google.code.gson:gson:2.8.5'
 }

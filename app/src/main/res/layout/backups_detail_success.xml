@@ -7,6 +7,13 @@
 
     </data>
 
+    <!--                                main                     detail
+        1.CoordinatorLayout             670dp false             700dp  true     / fitsSystemWindows
+        2.AppBarLayout.height           wrap_content  false       250dp  true
+        3.CollapsingToolbarLayout       无Gone                   有 true
+            ImageView                   无Gone                   有
+    -->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -14,20 +21,40 @@
 
         <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
-            android:layout_height="670dp"
-            android:orientation="vertical">
+            android:layout_height="700dp"
+            android:orientation="vertical"
+            android:fitsSystemWindows="true">
 
             <com.google.android.material.appbar.AppBarLayout
                 android:id="@+id/appBarLayout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="250dp"
+                android:fitsSystemWindows="true">
 
-                <androidx.appcompat.widget.Toolbar
-                    android:id="@+id/mainActivity_toolbar"
+                <com.google.android.material.appbar.CollapsingToolbarLayout
                     android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize"
-                    app:layout_collapseMode="pin"
-                    app:layout_scrollFlags="scroll|enterAlways|snap" />
+                    android:layout_height="match_parent"
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                    app:contentScrim="@color/design_default_color_primary"
+                    app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                    android:fitsSystemWindows="true">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        app:layout_collapseMode="parallax"
+                        android:src="@mipmap/ic_launcher"
+                        android:fitsSystemWindows="true"/>
+
+                    <androidx.appcompat.widget.Toolbar
+                        android:id="@+id/mainActivity_toolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="?attr/actionBarSize"
+                        app:layout_collapseMode="pin"
+                        app:layout_scrollFlags="scroll|enterAlways|snap"/>
+
+                </com.google.android.material.appbar.CollapsingToolbarLayout>
 
 
             </com.google.android.material.appbar.AppBarLayout>

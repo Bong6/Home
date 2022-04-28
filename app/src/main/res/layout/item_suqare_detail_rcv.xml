@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="comment"
+            type="com.example.home.database.entity.Comment" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/detail_relativeLayout_msg"
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+
+        <ImageView
+            android:id="@+id/detail_comment_user_photo"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            app:setImageSrcCircle="@{comment.answerPhoto}"
+            android:scaleType="centerCrop"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp" />
+
+        <TextView
+            android:id="@+id/detail_comment_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="@{comment.answerer}"
+            android:lines="1"
+            android:singleLine="true"
+            android:layout_toEndOf="@+id/detail_comment_user_photo"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="5dp" />
+
+        <TextView
+            android:id="@+id/detail_comment_user_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="@{comment.answer}"
+            android:ellipsize="end"
+            android:lines="2"
+            android:layout_toEndOf="@+id/detail_comment_user_photo"
+            android:layout_below="@+id/detail_comment_user_name"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="5dp" />
+
+        <TextView
+            android:id="@+id/detail_comment_user_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{comment.answerTime}"
+            android:layout_toEndOf="@+id/detail_comment_user_photo"
+            android:layout_below="@+id/detail_comment_user_comment"
+            android:textSize="12sp"
+            android:layout_marginStart="5dp" />
+
+    </RelativeLayout>
+
+
+
+</layout>
+

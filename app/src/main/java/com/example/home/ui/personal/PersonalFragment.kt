@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.example.home.MainActivity
+import com.example.home.base.BaseFragment
 import com.example.home.database.entity.User
 import com.example.home.databinding.FragmentPersonalBinding
 import com.example.home.ui.suqare.SquareViewModel
@@ -20,7 +22,7 @@ import com.example.home.utils.InjectorUtils
     @Date 2022-03-26 0:11
 */
 
-class PersonalFragment : Fragment() {
+class PersonalFragment : BaseFragment() {
     companion object{
         fun newInstance() : PersonalFragment {
             val fragment = PersonalFragment()
@@ -48,4 +50,10 @@ class PersonalFragment : Fragment() {
 
         return binding.root
     }
+
+    override fun onResume() {
+        super.onResume()
+        setMainScrollToolBar(1)
+    }
+
 }

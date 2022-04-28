@@ -17,33 +17,28 @@
             android:layout_height="670dp"
             android:orientation="vertical">
 
-            <!--标题栏 开始 -->
+            <!--Main标题栏 开始 -->
             <com.google.android.material.appbar.AppBarLayout
                 android:id="@+id/main_appBarLayout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fitsSystemWindows="true">
+                android:layout_height="wrap_content">
 
                 <androidx.appcompat.widget.Toolbar
                     android:id="@+id/main_toolbar"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
-                    app:layout_collapseMode="pin"
-                    app:tabGravity="fill"
-                    app:tabMode="fixed"
-                    android:background="?attr/colorPrimary"
-                    android:minHeight="?attr/actionBarSize"
-                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-                    app:layout_scrollFlags="scroll|enterAlways|snap"
-                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+                    app:layout_collapseMode="pin"/>
+<!--                    app:layout_scrollFlags="scroll|enterAlways|snap"/>-->
+
 
             </com.google.android.material.appbar.AppBarLayout>
-            <!--标题栏 结束 -->
+            <!--Main标题栏 结束 -->
+
 
             <!--fragment 开始 -->
             <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
                 <fragment
@@ -52,7 +47,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     app:defaultNavHost="true"
-                    app:layout_behavior="@string/appbar_scrolling_view_behavior"
                     app:navGraph="@navigation/mobile_navigation" />
 
             </androidx.core.widget.NestedScrollView>

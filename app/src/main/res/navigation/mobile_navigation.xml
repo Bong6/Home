@@ -10,17 +10,7 @@
         android:id="@+id/square"
         android:name="com.example.home.ui.suqare.SquareFragment"
         android:label="广场"
-        tools:layout="@layout/fragment_square" >
-
-        <action
-            android:id="@+id/action_square_to_detail"
-            app:destination="@id/detail"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
-
-    </fragment>
+        tools:layout="@layout/fragment_square"/>
 
     <fragment
         android:id="@+id/encyclopedias"
@@ -40,16 +30,6 @@
         android:label="我的"
         tools:layout="@layout/fragment_personal" />
 
-    <fragment
-        android:id="@+id/detail"
-        android:name="com.example.home.ui.suqare.DetailFragment"
-        android:label="详情">
-
-        <argument
-            android:name="data"
-            app:argType="com.example.home.database.entity.LocalData" />
-
-    </fragment>
 
 
 </navigation>

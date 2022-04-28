@@ -6,11 +6,6 @@
         <variable
             name = "data"
             type = "com.example.home.database.entity.LocalData"/>
-
-        <variable
-            name = "click"
-            type = "android.view.View.OnClickListener"/>
-
     </data>
 
     <androidx.cardview.widget.CardView
@@ -19,8 +14,7 @@
         android:layout_height="wrap_content"
         app:cardCornerRadius="15dp"
         app:cardElevation="20dp"
-        android:layout_margin="5dp"
-        android:onClick="@{click}">
+        android:layout_margin="5dp">
 
 
         <LinearLayout
