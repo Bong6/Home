@@ -1,7 +1,7 @@
 package com.example.kotlindemo.RetrofitClient
 
 
-import com.example.kotlindemo.config.Flag
+import com.example.home.utils.Flag
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory

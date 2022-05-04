@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.home.R
 import com.example.home.databinding.ItemSquareRcvBinding
 import com.example.home.database.entity.LocalData
-
+import com.example.home.net.entity.AnswerInformation
 
 
 /*
@@ -23,6 +23,7 @@ class WaterFallAdapter() : RecyclerView.Adapter<WaterFallAdapter.ViewHolder>(),V
     private var list : List<LocalData> = listOf()
     private var onItemClickListener : OnItemClickListener ?= null
     private var recyclerView : RecyclerView ?= null
+    private var listComment : MutableList<MutableList<AnswerInformation>> ?= null
 
     constructor(list: List<LocalData>) : this(){
         this.list = list
@@ -37,10 +38,14 @@ class WaterFallAdapter() : RecyclerView.Adapter<WaterFallAdapter.ViewHolder>(),V
         this.onItemClickListener = onItemClickListener
     }
 
+    fun setListComment(listComment : MutableList<MutableList<AnswerInformation>>){
+        this.listComment = listComment
+    }
+
     override fun onClick(view : View?) {
         Log.d("javed","222")
         val position = recyclerView?.getChildAdapterPosition(view!!)
-        onItemClickListener?.onItemClick(recyclerView!!,view!!,position!!,list.get(position));
+        onItemClickListener?.onItemClick(recyclerView!!,view!!,position!!,list.get(position),listComment!!.get(position));
     }
 
     override fun onAttachedToRecyclerView(recyclerView: RecyclerView) {
@@ -92,5 +97,5 @@ class WaterFallAdapter() : RecyclerView.Adapter<WaterFallAdapter.ViewHolder>(),V
 }
 
 interface OnItemClickListener{
-    fun onItemClick(recyclerView: RecyclerView,view: View,position: Int,data: LocalData)
+    fun onItemClick(recyclerView: RecyclerView,view: View,position: Int,localData: LocalData,list: MutableList<AnswerInformation>)
 }

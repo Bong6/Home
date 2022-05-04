@@ -19,7 +19,7 @@
         android:id="@+id/picture"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:src="@mipmap/image_all_ocean"
+        android:src="@mipmap/bg_all_ocean"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

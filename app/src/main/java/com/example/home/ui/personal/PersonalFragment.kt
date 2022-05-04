@@ -4,15 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.example.home.MainActivity
 import com.example.home.base.BaseFragment
 import com.example.home.database.entity.User
 import com.example.home.databinding.FragmentPersonalBinding
-import com.example.home.ui.suqare.SquareViewModel
-import com.example.home.ui.suqare.SquareViewModelFactory
 import com.example.home.utils.InjectorUtils
 
 

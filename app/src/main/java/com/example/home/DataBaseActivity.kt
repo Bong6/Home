@@ -80,15 +80,15 @@ class DataBaseActivity : AppCompatActivity() {
             }
         }
 
-
         val localDataDao = AppDatabase.getDatabase(this).localDataDao()
-        val list3 = GetInformation.getLocalData()
-
-        binding.buttonLocaldataInsert.setOnClickListener {
-            thread {
-                localDataDao.insertLocalData(list3)
-            }
-        }
+        //取消从本地获取信息，改为从网络中获取
+//        val list3 = GetInformation.getLocalData()
+//
+//        binding.buttonLocaldataInsert.setOnClickListener {
+//            thread {
+//                localDataDao.insertLocalData(list3)
+//            }
+//        }
 
         binding.buttonLocaldataQuery.setOnClickListener {
             thread {

@@ -6,7 +6,7 @@
     <data>
         <variable
             name="comment"
-            type="com.example.home.database.entity.Comment" />
+            type="com.example.home.net.entity.AnswerInformation" />
     </data>
 
     <RelativeLayout
@@ -29,7 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="14sp"
-            android:text="@{comment.answerer}"
+            android:text="@{comment.answerName}"
             android:lines="1"
             android:singleLine="true"
             android:layout_toEndOf="@+id/detail_comment_user_photo"
@@ -41,7 +41,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="14sp"
-            android:text="@{comment.answer}"
+            android:text="@{comment.answerDescribe}"
             android:ellipsize="end"
             android:lines="2"
             android:layout_toEndOf="@+id/detail_comment_user_photo"

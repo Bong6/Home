@@ -25,13 +25,13 @@
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
     <loaded-nodes>
-      <connection connection-id="e9dd1ef1-9387-4b43-a92b-ff2b1d4c569c">
-        <schema name="main" object-types="table, view, constraint, index, column, dataset trigger" />
+      <connection connection-id="039e2f00-31bf-439c-b525-3f21bba8f14a">
+        <schema name="main" object-types="table, view" />
       </connection>
     </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
-    <connection id="e9dd1ef1-9387-4b43-a92b-ff2b1d4c569c">
+    <connection id="039e2f00-31bf-439c-b525-3f21bba8f14a">
       <console name="Connection" type="STANDARD" schema="main" session="Main" />
     </connection>
   </component>
@@ -39,11 +39,11 @@
     <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
-    <connection id="e9dd1ef1-9387-4b43-a92b-ff2b1d4c569c" />
+    <connection id="039e2f00-31bf-439c-b525-3f21bba8f14a" />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
-    <filter-actions connection-id="e9dd1ef1-9387-4b43-a92b-ff2b1d4c569c" dataset="main.localdata" active-filter-id="93998562-bfec-4c2e-8969-5144ae34cca2">
-      <filter id="93998562-bfec-4c2e-8969-5144ae34cca2" name="Filter" temporary="false" custom-name="false" type="basic" join-type="AND" />
+    <filter-actions connection-id="039e2f00-31bf-439c-b525-3f21bba8f14a" dataset="main.localdata" active-filter-id="b705805a-1d39-4116-b4aa-b342d495afc7">
+      <filter id="b705805a-1d39-4116-b4aa-b342d495afc7" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND" />
     </filter-actions>
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
@@ -72,7 +72,7 @@
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
-      <connection id="e9dd1ef1-9387-4b43-a92b-ff2b1d4c569c" active="true">
+      <connection id="039e2f00-31bf-439c-b525-3f21bba8f14a" active="true">
         <database>
           <name value="Connection" />
           <description value="" />
@@ -87,7 +87,7 @@
           <port value="" />
           <database value="" />
           <files>
-            <file path="C:\Users\10185\Desktop\论文\app_database" schema="main" />
+            <file path="C:\Users\10185\Desktop\app_database" schema="main" />
           </files>
           <type value="NONE" />
           <user value="" />

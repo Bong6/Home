@@ -28,6 +28,11 @@ class LocalDataRepository private constructor(private val dao : LocalDataDao) {
         }
     }
 
+    //插入数据
+    fun insertLocalData(list: List<LocalData>){
+        dao.insertLocalData(list)
+    }
+
     //获取本地数据
     fun getLocalData(): LiveData<List<LocalData>> {
         return dao.queryLocalData()

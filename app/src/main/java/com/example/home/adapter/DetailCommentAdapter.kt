@@ -8,6 +8,7 @@ import com.example.home.R
 import com.example.home.database.entity.Comment
 import com.example.home.database.entity.LocalData
 import com.example.home.databinding.ItemSuqareDetailRcvBinding
+import com.example.home.net.entity.AnswerInformation
 
 
 /*
@@ -18,14 +19,14 @@ import com.example.home.databinding.ItemSuqareDetailRcvBinding
 
 class DetailCommentAdapter() : RecyclerView.Adapter<DetailCommentAdapter.ViewHolder>() {
 
-    private lateinit var list: List<Comment>
+    private var list: List<AnswerInformation> ?= null
 
-    constructor(list: List<Comment>) : this(){
+    constructor(list: List<AnswerInformation>?) : this(){
         this.list = list
     }
 
     class ViewHolder(val binding : ItemSuqareDetailRcvBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(comment : Comment){
+        fun bind(comment : AnswerInformation){
             binding.comment = comment
             binding.executePendingBindings()
         }
@@ -43,12 +44,16 @@ class DetailCommentAdapter() : RecyclerView.Adapter<DetailCommentAdapter.ViewHol
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val comment = list[position]
-        holder.bind(comment)
+        val comment = list?.get(position)
+        comment?.let { holder.bind(it) }
     }
 
     override fun getItemCount(): Int {
-        return list.size
+        if (list == null){
+            return 0
+        }else {
+            return list!!.size
+        }
     }
 
 }

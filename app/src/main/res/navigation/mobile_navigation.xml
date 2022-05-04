@@ -10,7 +10,11 @@
         android:id="@+id/square"
         android:name="com.example.home.ui.suqare.SquareFragment"
         android:label="广场"
-        tools:layout="@layout/fragment_square"/>
+        tools:layout="@layout/fragment_square">
+        <action
+            android:id="@+id/action_square_to_login"
+            app:destination="@id/login" />
+    </fragment>
 
     <fragment
         android:id="@+id/encyclopedias"
@@ -30,6 +34,16 @@
         android:label="我的"
         tools:layout="@layout/fragment_personal" />
 
+    <fragment
+        android:id="@+id/login"
+        android:name="com.example.home.ui.userRelated.LoginFragment"
+        tools:label="登录"
+        tools:layout="@layout/fragment_login" />
 
+    <fragment
+        android:id="@+id/register"
+        android:name="com.example.home.ui.userRelated.RegisterFragment"
+        tools:label="注册"
+        tools:layout="@layout/fragment_register" />
 
 </navigation>

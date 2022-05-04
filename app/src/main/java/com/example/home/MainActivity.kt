@@ -10,6 +10,7 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
+import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions.option
 import com.example.home.databinding.ActivityMainBinding
 import com.example.home.net.GetInformationAPI
@@ -52,10 +53,8 @@ class MainActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this,R.layout.activity_main)
 
         setSupportActionBar(binding.mainToolbar)
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-        NavigationUI.setupWithNavController(binding.mainBtnNav, navController);
-
-
+        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration)
+        NavigationUI.setupWithNavController(binding.mainBtnNav, navController)
     }
 
     fun setScrollToolBar(type : Int){
@@ -91,26 +90,5 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-
-        //模仿网络操作
-        APIClient.mInstance.create(GetInformationAPI::class.java).getAction().enqueue(
-            object : Callback<NetLocalData>{
-                override fun onResponse(
-                    call: Call<NetLocalData>,
-                    response: Response<NetLocalData>
-                ) {
-                    if (response.body() != null){
-                        val jsonData = GetInformation.getNetLocalData()
-                        val gson = Gson()
-                        val netLocalData = gson.fromJson(jsonData,NetLocalData::class.java)
-                        Log.d("javed",netLocalData.toString())
-                    }
-                }
-
-                override fun onFailure(call: Call<NetLocalData>, t: Throwable) {
-                    Log.d("javed", "onFailure")
-                }
-            }
-        )
     }
 }

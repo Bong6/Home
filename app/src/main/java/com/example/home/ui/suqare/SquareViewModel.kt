@@ -16,14 +16,17 @@ import com.example.home.repository.LocalDataRepository
 class SquareViewModel() : ViewModel() {
 
     private lateinit var repository: LocalDataRepository
-    public lateinit var data : LiveData<List<LocalData>>
 
+    public lateinit var data : LiveData<List<LocalData>>
 
     constructor(repository: LocalDataRepository) : this(){
         this.repository = repository
         data = repository.getLocalData()
     }
 
+    public fun getLocalDataRepository() : LocalDataRepository{
+        return repository
+    }
 
 
 

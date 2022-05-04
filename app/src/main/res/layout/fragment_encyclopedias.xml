@@ -11,6 +11,8 @@
         <variable
             name="click"
             type="android.view.View.OnClickListener" />
+
+        <import type="com.example.home.utils.Flag"/>
     </data>
 
     <LinearLayout
@@ -24,7 +26,7 @@
             android:id="@+id/personal_relativeLayout_top"
             android:layout_width="match_parent"
             android:layout_height="150dp"
-            android:background="@mipmap/image_all_ocean">
+            app:setImageSrcNormalForRelativeLayout="@{Flag.INSTANCE.bgAllOcean}">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -95,7 +97,6 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="250dp"
-                    android:background="@drawable/ic_1"
                     android:scaleType="centerCrop"
                     app:setImageSrcNormal="@{knowledge.imageId}"/>
 

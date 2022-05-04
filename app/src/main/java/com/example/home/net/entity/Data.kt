@@ -14,6 +14,7 @@ data class Data(
     var userPhoto : Long,
     var userName : String,
     var time : String,
+    var title : String,
     var describe : String,
     var answerInformation : List<AnswerInformation>
 ) {

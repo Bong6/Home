@@ -7,6 +7,10 @@
         <variable
             name="detail_data"
             type="com.example.home.database.entity.LocalData" />
+
+        <variable
+            name="commentAccount"
+            type="int" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -112,6 +116,7 @@
                         android:layout_height="wrap_content"
                         android:textSize="18sp"
                         android:textColor="@color/black"
+                        android:paddingTop="20dp"
                         android:text="@{detail_data.title}"
                         android:layout_gravity="center"/>
 
@@ -119,6 +124,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@{detail_data.describe}"
+                        android:padding="20dp"
                         android:textSize="14sp"/>
 
                 </LinearLayout>
@@ -128,44 +134,15 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:gravity="center_vertical"
+                    android:padding="20dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="评论 2"
+                        android:text="@{@string/comment + String.valueOf(commentAccount)}"
                         android:layout_marginLeft="20dp"/>
-                    <!--写下你的评论 开始 -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="60dp"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginRight="30dp"
-                        android:layout_alignParentBottom="true"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:src="@drawable/icon_encyclopedias_magnifier"
-                            android:layout_marginLeft="20dp" />
-
-                        <EditText
-                            android:layout_width="250dp"
-                            android:layout_height="40dp"
-                            android:hint="写下你的评论..."
-                            android:focusable="false"
-                            android:textSize="14sp" />
-
-                        <ImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:src="@drawable/icon_encyclopedias_magnifier"
-                            android:layout_marginLeft="10dp" />
-
-                    </LinearLayout>
-                    <!--写下你的评论 结束 -->
 
                     <!--评论 开始 -->
                     <androidx.recyclerview.widget.RecyclerView
@@ -179,35 +156,45 @@
                         android:layout_height="wrap_content"
                         android:text="查看全部评论   >"
                         android:textSize="12sp"
-                        android:layout_marginLeft="150dp"/>
-
+                        android:layout_marginLeft="140dp"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="20dp"
+                        android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        android:gravity="end"
+                        android:gravity="center_vertical"
                         android:layout_marginTop="30dp">
 
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:src="@drawable/icon_like"
-                            android:layout_marginRight="10dp"/>
+                        <!--写下你的评论 开始 -->
+                        <EditText
+                            android:layout_width="250dp"
+                            android:layout_height="40dp"
+                            android:hint="写下你的评论..."
+                            android:focusable="false"
+                            android:layout_marginLeft="10dp"
+                            android:textSize="14sp" />
+                        <!--写下你的评论 结束 -->
 
                         <ImageView
                             android:layout_width="20dp"
                             android:layout_height="20dp"
-                            android:src="@drawable/icon_collection"
-                            android:layout_marginRight="10dp"/>
+                            android:layout_marginLeft="10dp"
+                            android:src="@drawable/icon_like"/>
 
                         <ImageView
                             android:layout_width="20dp"
                             android:layout_height="20dp"
-                            android:src="@drawable/icon_comment"
-                            android:layout_marginRight="20dp"/>
+                            android:layout_marginLeft="10dp"
+                            android:src="@drawable/icon_collection"/>
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginLeft="10dp"
+                            android:src="@drawable/icon_comment"/>
 
                     </LinearLayout>
+
                 </LinearLayout>
                 <!--评论信息 结束 -->
 

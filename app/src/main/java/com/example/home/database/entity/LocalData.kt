@@ -43,77 +43,9 @@ class LocalData (
    @ColumnInfo(name = "title",typeAffinity = ColumnInfo.TEXT)
    var title : String,
    @ColumnInfo(name = "describe",typeAffinity = ColumnInfo.TEXT)
-   var describe : String,
-   @ColumnInfo(name = "answerOne",typeAffinity = ColumnInfo.TEXT)
-   var answerOne : String,
-   @ColumnInfo(name = "answererOne",typeAffinity = ColumnInfo.TEXT)
-   var answererOne : String,
-   @ColumnInfo(name = "answerOnePhoto",typeAffinity = ColumnInfo.INTEGER)
-   var answerOnePhoto : Int,
-   @ColumnInfo(name = "answerOneTime",typeAffinity = ColumnInfo.TEXT)
-   var answerOneTime : String,
-   @ColumnInfo(name = "answerTwo",typeAffinity = ColumnInfo.TEXT)
-   var answerTwo : String,
-   @ColumnInfo(name = "answererTwo",typeAffinity = ColumnInfo.TEXT)
-   var answererTwo : String,
-   @ColumnInfo(name = "answerTwoPhoto",typeAffinity = ColumnInfo.INTEGER)
-   var answerTwoPhoto : Int,
-   @ColumnInfo(name = "answerTwoTime",typeAffinity = ColumnInfo.TEXT)
-   var answerTwoTime : String,
-        ) : Parcelable {
+   var describe : String) : Parcelable {
 
    override fun toString(): String {
-      return "LocalData(recordId=$recordId, imageId=$imageId, userId=$userId, userPhoto=$userPhoto, userName='$userName', time='$time', title='$title', describe='$describe', answerOne='$answerOne', answererOne='$answererOne', answerOnePhoto=$answerOnePhoto, answerOneTime='$answerOneTime', answerTwo='$answerTwo', answererTwo='$answererTwo', answerTwoPhoto=$answerTwoPhoto, answerTwoTime='$answerTwoTime')"
+      return "LocalData(recordId=$recordId, imageId=$imageId, userId=$userId, userPhoto=$userPhoto, userName='$userName', time='$time', title='$title', describe='$describe')"
    }
-
-
-   //序列化
-//   private var `in`: Parcel
-//      get() {
-//         return `in`
-//      }
-//   set(value) {
-//      `in` = value
-//   }
-//
-//   constructor(`in`: Parcel) : this(){
-//      this.`in` = `in`
-//   }
-//
-//
-//   override fun describeContents(): Int {
-//      return 0
-//   }
-
-//   override fun writeToParcel(out: Parcel?, flags: Int) {
-//      out?.writeInt(recordId)
-//      out?.writeInt(imageId)
-//      out?.writeInt(userId)
-//      out?.writeInt(userPhoto)
-//      out?.writeString(userName)
-//      out?.writeString(time)
-//      out?.writeString(title)
-//      out?.writeString(describe)
-//      out?.writeString(answerOne)
-//      out?.writeString(answererOne)
-//      out?.writeInt(answerOnePhoto)
-//      out?.writeString(answerOneTime)
-//      out?.writeString(answerTwo)
-//      out?.writeString(answererTwo)
-//      out?.writeInt(answerTwoPhoto)
-//      out?.writeString(answerTwoTime)
-//   }
-//
-//
-//   companion object CREATOR: Parcelable.Creator<LocalData?> {
-//
-//      override fun newArray(size: Int): Array<LocalData?> {
-//         return arrayOfNulls(size)
-//      }
-//
-//      override fun createFromParcel(p0: Parcel): LocalData {
-//         return LocalData(p0)
-//      }
-//   }
-
 }

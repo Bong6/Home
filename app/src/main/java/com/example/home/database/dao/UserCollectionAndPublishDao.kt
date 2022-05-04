@@ -30,6 +30,6 @@ interface UserCollectionAndPublishDao {
     fun queryUserCollectionRecord_EncyclopediaKnowledge() : List<EncyclopediaKnowledge>
 
     //查询用户收藏的本地数据
-    @Query("select localdata.recordId,localdata.imageId,localdata.userId,localdata.userPhoto,localdata.userName,localdata.time,localdata.title,localdata.describe,localdata.answerOne,localdata.answererOne,localdata.answerOnePhoto,localdata.answerOneTime,localdata.answerTwo,localdata.answererTwo,localdata.answerTwoPhoto,localdata.answerTwoTime from localdata,usercollectionandpublish where usercollectionandpublish.userId = 1 and usercollectionandpublish.collectandpublish_type = 2 and usercollectionandpublish.localorknowledge_type = 1 and localdata.recordId = usercollectionandpublish.foreignkey_id")
+    @Query("select localdata.recordId,localdata.imageId,localdata.userId,localdata.userPhoto,localdata.userName,localdata.time,localdata.title,localdata.describe from localdata,usercollectionandpublish where usercollectionandpublish.userId = 1 and usercollectionandpublish.collectandpublish_type = 2 and usercollectionandpublish.localorknowledge_type = 1 and localdata.recordId = usercollectionandpublish.foreignkey_id")
     fun queryUserCollectionRecord_LocalData() : List<LocalData>
 }

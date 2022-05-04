@@ -10,6 +10,7 @@ import com.example.home.adapter.DetailCommentAdapter
 import com.example.home.database.entity.Comment
 import com.example.home.database.entity.LocalData
 import com.example.home.databinding.ActivitySquareDetailBinding
+import com.example.home.net.entity.AnswerInformation
 
 
 /*
@@ -25,26 +26,15 @@ class SquareDetailActivity : AppCompatActivity() {
 
         val binding : ActivitySquareDetailBinding = DataBindingUtil.setContentView(this, R.layout.activity_square_detail)
         val localData = intent.getBundleExtra("bundle")?.getParcelable<LocalData>("data")
+        val list = intent.getBundleExtra("bundle")?.getParcelableArrayList<AnswerInformation>("commentList")
+
+
         binding.detailData = localData
+        binding.commentAccount = list?.size ?: 0
 
-        //模拟数据
-        val list : MutableList<Comment> = mutableListOf()
-        localData?.let {
-            if (!localData.answerOne.equals("")){
-                val comment1 = Comment(localData.answerOne,localData.answererOne,localData.answerOnePhoto,localData.answerOneTime)
-                list.add(comment1)
-            }
-
-            if (!localData.answerTwo.equals("")){
-                val comment2 = Comment(localData.answerTwo,localData.answererTwo,localData.answerTwoPhoto,localData.answerTwoTime)
-                list.add(comment2)
-            }
-        }
-
+        //展示评论数据
         binding.detailRcv.adapter = DetailCommentAdapter(list)
         binding.detailRcv.itemAnimator = null
         binding.detailRcv.layoutManager = LinearLayoutManager(this)
-
-
     }
 }
