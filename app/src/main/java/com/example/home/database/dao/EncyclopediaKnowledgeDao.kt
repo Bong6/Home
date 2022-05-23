@@ -23,4 +23,8 @@ interface EncyclopediaKnowledgeDao {
     //查询所有数据
     @Query("select * from encyclopediaknowledge")
     fun queryEncyclopediaKnowledge() : LiveData<List<EncyclopediaKnowledge>>
+
+    //查询某一疾病信息
+    @Query("select * from encyclopediaknowledge where sickName = :sickName")
+    fun queryExactlyEncyclopediaknowledge(sickName : String) : EncyclopediaKnowledge?
 }

@@ -28,6 +28,4 @@ class SquareViewModel() : ViewModel() {
         return repository
     }
 
-
-
 }

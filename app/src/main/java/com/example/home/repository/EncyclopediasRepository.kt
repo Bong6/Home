@@ -35,4 +35,8 @@ class EncyclopediasRepository private constructor(private val dao : Encyclopedia
         return dao.queryEncyclopediaKnowledge()
     }
 
+    //查询某一疾病信息
+    fun queryExactlyEncyclopediaknowledge(sickName : String) : EncyclopediaKnowledge?{
+        return dao.queryExactlyEncyclopediaknowledge(sickName)
+    }
 }

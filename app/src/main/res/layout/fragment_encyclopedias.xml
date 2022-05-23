@@ -12,7 +12,7 @@
             name="click"
             type="android.view.View.OnClickListener" />
 
-        <import type="com.example.home.utils.Flag"/>
+        <import type="com.example.home.R"/>
     </data>
 
     <LinearLayout
@@ -23,38 +23,42 @@
 
         <!--顶部搜索 开始-->
         <RelativeLayout
-            android:id="@+id/personal_relativeLayout_top"
+            android:id="@+id/encyclopedias_relativeLayout_top"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            app:setImageSrcNormalForRelativeLayout="@{Flag.INSTANCE.bgAllOcean}">
+            android:layout_height="150dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="30sp"
-                android:text="识物百科"
-                android:layout_marginTop="30dp"
-                android:layout_marginLeft="30dp" />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:setImageSrcNormal="@{R.mipmap.bg_all_ocean}"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="40dp"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
                 android:layout_alignParentBottom="true"
+                android:layout_marginBottom="40dp"
                 android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:alpha="0.6"
+                android:background="@drawable/style_encyclopedias_toplinearlayout">
 
                 <ImageView
+                    android:id="@+id/encyclopedias_find"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:src="@drawable/icon_encyclopedias_magnifier"
+                    android:onClick="@{click}"
                     android:layout_marginLeft="20dp" />
 
                 <EditText
+                    android:id="@+id/encyclopedias_edittext"
                     android:layout_width="250dp"
                     android:layout_height="40dp"
                     android:hint="请输入搜索内容"
+                    android:paddingLeft="10dp"
+                    android:layout_marginRight="10dp"
                     android:textSize="14sp" />
 
             </LinearLayout>
@@ -84,6 +88,7 @@
                 android:layout_marginRight="30dp" />
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/encyclopedias_cardview"
                 android:layout_width="match_parent"
                 android:layout_height="350dp"
                 android:layout_alignParentBottom="true"
@@ -91,8 +96,7 @@
                 android:layout_marginLeft="30dp"
                 android:layout_marginBottom="20dp"
                 app:cardElevation="10dp"
-                app:cardCornerRadius="15dp"
-                android:onClick="@{click}">
+                app:cardCornerRadius="15dp">
 
                 <ImageView
                     android:layout_width="match_parent"

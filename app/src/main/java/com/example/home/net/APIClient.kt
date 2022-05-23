@@ -40,7 +40,7 @@ class APIClient {
         val retrofit : Retrofit = Retrofit.Builder()
             .baseUrl(Flag.BASE_URL)
             .client(okHttpClient)
-            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+//            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create())
             .build();
 

@@ -62,7 +62,9 @@ dependencies {
     kapt 'com.github.bumptech.glide:compiler:4.11.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
     //使用Glide实现高斯模糊效果
-    implementation 'jp.wasabeef:glide-transformations:2.0.1'
+    compile 'jp.wasabeef:glide-transformations:3.0.1'
+    // If you want to use the GPU Filters
+    compile 'jp.co.cyberagent.android.gpuimage:gpuimage-library:1.4.1'
     //RxJava
     implementation 'io.reactivex.rxjava2:rxjava:2.2.2'
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
@@ -79,6 +81,8 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.6.1'
     implementation 'com.squareup.retrofit2:converter-gson:2.6.1'
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.9.0'
+    //okhhtp
+    implementation 'com.squareup.okhttp3:okhttp:4.1.0'
     //下拉刷新
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
     //圆形图片

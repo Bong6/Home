@@ -1,18 +1,15 @@
 package com.example.home
 
-import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.databinding.DataBindingUtil
-import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
-import com.bumptech.glide.request.target.CustomTarget
-import com.bumptech.glide.request.transition.Transition
-import com.example.home.databinding.FragmentLoginBinding
-import com.example.home.utils.Flag
-import jp.wasabeef.glide.transformations.BlurTransformation
+import com.example.home.net.GetInformationAPI
+import com.example.home.net.entity.NetLocalData
+import com.example.kotlindemo.RetrofitClient.APIClient
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 /*
@@ -25,18 +22,45 @@ class TestActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding : FragmentLoginBinding = DataBindingUtil.setContentView(this,R.layout.fragment_login)
 
-        Glide.with(binding.loginRelativelayout).load(Flag.bgloginOcean)
-            .into(object : CustomTarget<Drawable>() {
-                override fun onResourceReady(resource: Drawable, transition: Transition<in Drawable>?) {
-                    binding.loginRelativelayout.background = resource
-                    Log.d("javed","111")
+
+
+
+        APIClient.mInstance.create(GetInformationAPI::class.java).getLocalData().enqueue(
+            object : Callback<NetLocalData> {
+                override fun onResponse(
+                    call: Call<NetLocalData>,
+                    response: Response<NetLocalData>
+                ) {
+                    Log.d("javed","success")
+                    Log.d("javed",response.body().toString())
+                    Log.d("javed",response.body()!!.data.last().title)
+
                 }
-
-                override fun onLoadCleared(placeholder: Drawable?) {
-                    Log.d("javed","222")
+                override fun onFailure(call: Call<NetLocalData>, t: Throwable) {
+                    Log.d("javed","onFailure")
                 }
             })
+
+//        val okHttpClient = OkHttpClient()
+//        val request = Request.Builder()
+//            .url("http://192.168.43.208:80/get_data.json")
+//            .build()
+//        try {
+//            thread {
+//                val response = okHttpClient.newCall(request).execute()
+//                val data = response.body?.string()
+//                if (data != null){
+//                    val gson = Gson()
+//                    val netLocalData = gson.fromJson(data,NetLocalData::class.java)
+//                    Log.d("javed",netLocalData.data.last().title)
+//                }
+//            }
+//        }catch(e : Exception){
+//
+//        }
+
     }
 }
+
+

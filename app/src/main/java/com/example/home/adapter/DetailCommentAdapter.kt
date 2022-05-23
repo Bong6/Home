@@ -5,9 +5,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.home.R
-import com.example.home.database.entity.Comment
-import com.example.home.database.entity.LocalData
-import com.example.home.databinding.ItemSuqareDetailRcvBinding
+import com.example.home.databinding.ItemLocaldataDetailBinding
 import com.example.home.net.entity.AnswerInformation
 
 
@@ -25,7 +23,7 @@ class DetailCommentAdapter() : RecyclerView.Adapter<DetailCommentAdapter.ViewHol
         this.list = list
     }
 
-    class ViewHolder(val binding : ItemSuqareDetailRcvBinding) : RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder(val binding : ItemLocaldataDetailBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(comment : AnswerInformation){
             binding.comment = comment
             binding.executePendingBindings()
@@ -34,9 +32,9 @@ class DetailCommentAdapter() : RecyclerView.Adapter<DetailCommentAdapter.ViewHol
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
-            DataBindingUtil.inflate<ItemSuqareDetailRcvBinding>(
+            DataBindingUtil.inflate<ItemLocaldataDetailBinding>(
                 LayoutInflater.from(parent.context),
-                R.layout.item_suqare_detail_rcv,
+                R.layout.item_localdata_detail,
                 parent,
                 false
             )

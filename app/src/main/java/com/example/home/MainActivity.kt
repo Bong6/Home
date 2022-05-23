@@ -1,8 +1,7 @@
 package com.example.home
 
-import android.graphics.Color
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -10,18 +9,9 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
-import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions.option
 import com.example.home.databinding.ActivityMainBinding
-import com.example.home.net.GetInformationAPI
-import com.example.home.net.entity.NetLocalData
-import com.example.home.utils.GetInformation
-import com.example.kotlindemo.RetrofitClient.APIClient
+import com.example.home.ui.userRelated.ArticleActivity
 import com.google.android.material.appbar.AppBarLayout
-import com.google.gson.Gson
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 
 class MainActivity : AppCompatActivity() {
@@ -55,6 +45,12 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.mainToolbar)
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration)
         NavigationUI.setupWithNavController(binding.mainBtnNav, navController)
+
+        //跳转至编写文章页面
+        binding.mainFloatingbtn.setOnClickListener {
+            val intent = Intent(this,ArticleActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     fun setScrollToolBar(type : Int){
@@ -62,16 +58,18 @@ class MainActivity : AppCompatActivity() {
         val layoutParams : AppBarLayout.LayoutParams  = mainToolbar.layoutParams as AppBarLayout.LayoutParams
 
         /*
-        *   0 可以隐藏
-        *   1 不可以隐藏
+        *   0 标题栏可以隐藏 + 悬浮按钮可见
+        *   1 标题栏不可以隐藏 + 悬浮按钮不可见 
         * */
         when(type){
 
             0 ->{
                 layoutParams.scrollFlags = AppBarLayout.LayoutParams.SCROLL_FLAG_SCROLL or AppBarLayout.LayoutParams.SCROLL_FLAG_ENTER_ALWAYS or AppBarLayout.LayoutParams.SCROLL_FLAG_SNAP
+                binding.mainFloatingbtn.visibility = View.VISIBLE
             }
             1 ->{
                 layoutParams.scrollFlags = AppBarLayout.LayoutParams.SCROLL_FLAG_NO_SCROLL
+                binding.mainFloatingbtn.visibility = View.GONE
             }
             else ->{
 
@@ -88,7 +86,4 @@ class MainActivity : AppCompatActivity() {
         ) || super.onSupportNavigateUp()
     }
 
-    override fun onResume() {
-        super.onResume()
-    }
 }

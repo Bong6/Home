@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.home.R
 import com.example.home.adapter.OnItemClickListener
+import com.example.home.adapter.OnItemClickListenerWithComment
 import com.example.home.adapter.WaterFallAdapter
 import com.example.home.base.BaseFragment
 import com.example.home.databinding.FragmentSquareBinding
@@ -21,6 +22,7 @@ import com.example.home.net.GetInformationAPI
 import com.example.home.net.entity.AnswerInformation
 import com.example.home.net.entity.NetLocalData
 import com.example.home.ui.squaredetail.SquareDetailActivity
+import com.example.home.ui.userRelated.UserRelatedActivity
 import com.example.home.utils.GetInformation
 import com.example.home.utils.InjectorUtils
 import com.example.kotlindemo.RetrofitClient.APIClient
@@ -42,10 +44,13 @@ class SquareFragment : BaseFragment() {
 
     private var adapter : WaterFallAdapter ?= null
     private lateinit var viewModel : SquareViewModel
-    private lateinit var listComment : MutableList<MutableList<AnswerInformation>>
+
 
 
     companion object{
+        //评论数据
+        private lateinit var listComment : MutableList<MutableList<AnswerInformation>>
+
         fun newInstance() : SquareFragment {
             val fragment = SquareFragment()
             return fragment
@@ -63,17 +68,15 @@ class SquareFragment : BaseFragment() {
     }
 
     fun getNetLocalDataFromNet(){
-        //模仿网络操作
-        APIClient.mInstance.create(GetInformationAPI::class.java).getAction().enqueue(
+        //读取网络数据
+        APIClient.mInstance.create(GetInformationAPI::class.java).getLocalData().enqueue(
             object : Callback<NetLocalData> {
                 override fun onResponse(
                     call: Call<NetLocalData>,
                     response: Response<NetLocalData>
                 ) {
                     if (response.body() != null){
-                        val jsonData = GetInformation.getNetLocalData()
-                        val gson = Gson()
-                        val netLocalData : NetLocalData = gson.fromJson(jsonData, NetLocalData::class.java)
+                        val netLocalData = response.body()!!
 
                         //版本没变,没发生更新
                         if (netLocalData.version == Flag.curVersion){
@@ -85,44 +88,50 @@ class SquareFragment : BaseFragment() {
                                     listComment.add(answerInformation as MutableList<AnswerInformation>)
                                 }
                             }
-
                             Flag.curVersion = netLocalData.version
-
                             adapter?.setListComment(listComment)
+                            Log.d("javed","nochange finish")
                         }else{
                             //把网络数据插入到数据库中
                             netLocalData.let {
+                                //评论数据
+                                listComment = mutableListOf()
+                                //插入到数据库的数据
                                 val list : MutableList<LocalData> = mutableListOf()
                                 for (data in it.data){
+                                    //插入到数据库的数据
                                     val localData : LocalData = LocalData(
                                         data.recordId,
-                                        data.imageId.toInt(),
+                                        data.imageId,
                                         data.userId,
-                                        data.userPhoto.toInt(),
+                                        data.userPhoto,
                                         data.userName,
                                         data.time,
                                         data.title,
                                         data.describe
                                     )
                                     list.add(localData)
+                                    //评论数据
+                                    val answerInformation : List<AnswerInformation> = data.answerInformation
+                                    listComment.add(answerInformation as MutableList<AnswerInformation>)
                                 }
                                 thread {
                                     //1.清楚原先旧数据
-
+                                    viewModel.getLocalDataRepository().deleteLocalData()
                                     //2.插入新数据
                                     viewModel.getLocalDataRepository().insertLocalData(list)
+                                    //3.更新版本
+                                    Flag.curVersion = it.version
                                 }
+                                Log.d("javed","change finish")
                             }
                         }
-
                     }
                 }
-
                 override fun onFailure(call: Call<NetLocalData>, t: Throwable) {
                     Log.d("javed", "onFailure")
                 }
-            }
-        )
+            })
     }
 
     override fun onCreateView(
@@ -134,8 +143,8 @@ class SquareFragment : BaseFragment() {
 
 
         binding.squareRcv.layoutManager = StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL)
-        adapter = WaterFallAdapter()
-        adapter?.setOnItemClickListener(object : OnItemClickListener {
+        adapter = WaterFallAdapter(0)
+        adapter?.setOnItemClickListenerWithComment(object : OnItemClickListenerWithComment {
             override fun onItemClick(
                 recyclerView: RecyclerView,
                 view: View,
@@ -144,10 +153,9 @@ class SquareFragment : BaseFragment() {
                 list: MutableList<AnswerInformation>
             ) {
                 //判断用户是否已经登录    ->  未登录需要先登录
-                if (Flag.userId.equals(0)){
-                    Navigation.findNavController(view).navigate(
-                        R.id.action_square_to_login
-                    )
+                if (Flag.user == null){
+                    val intent = Intent(requireContext(), UserRelatedActivity::class.java)
+                    requireContext().startActivity(intent)
                 }else{
                     val commentList = arrayListOf<AnswerInformation>()
                     for (data in list){
@@ -170,7 +178,7 @@ class SquareFragment : BaseFragment() {
 
         viewModel.data.observe(requireActivity(),object : Observer<List<LocalData>>{
             override fun onChanged(list: List<LocalData>) {
-                adapter?.setAllBean(list)
+                adapter?.setListLocalData(list)
             }
         })
 

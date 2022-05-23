@@ -19,9 +19,13 @@ import com.example.home.database.entity.User
 @Dao
 interface UserDao {
 
-    //插入数据
+    //插入一组数据
     @Insert
     fun insertUser(list: List<User>)
+
+    //插入单个数据
+    @Insert
+    fun registerUser(user: User)
 
     //更新数据
     @Update
@@ -31,7 +35,7 @@ interface UserDao {
     @Query("select * from user")
     fun queryUser() :List<User>
 
-    //查询userId为1 的用户信息
-    @Query("select * from user where userId = 1")
-    fun queryUserId_1() : LiveData<User>
+    //登录
+    @Query("select * from user where userAccount =:userAccount and userPassword =:userPassword")
+    fun loginUser(userAccount : String,userPassword : String) : User?
 }

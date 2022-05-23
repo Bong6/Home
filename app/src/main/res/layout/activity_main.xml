@@ -13,6 +13,7 @@
         android:orientation="vertical">
 
         <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/main_coordinatorlayout"
             android:layout_width="match_parent"
             android:layout_height="670dp"
             android:orientation="vertical">
@@ -37,6 +38,7 @@
 
             <!--fragment 开始 -->
             <androidx.core.widget.NestedScrollView
+                android:id="@+id/main_nestedscrollview"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior">
@@ -51,6 +53,17 @@
 
             </androidx.core.widget.NestedScrollView>
             <!--fragment 结束 -->
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/main_floatingbtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                app:layout_anchor="@id/main_nestedscrollview"
+                app:layout_anchorGravity="bottom|end"
+                android:src="@drawable/icon_plus"
+                android:alpha="0.8"
+                app:elevation="8dp"/>
 
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

@@ -21,7 +21,11 @@ object XmlUtils {
         }
     }
 
-    //设置是否可见
+    /*
+    设置是否可见
+    true 可见
+    false 不可见
+    */
     fun setVisibility(mFlag: Boolean) : Int {
         if (mFlag){
             return View.VISIBLE
@@ -29,6 +33,8 @@ object XmlUtils {
             return View.GONE
         }
     }
+
+
 
     //设置是否沉浸式标题栏
     fun setFitsSystemWindows(mIsMain: Boolean) : Boolean {

@@ -6,9 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
+import androidx.navigation.ui.NavigationUI
+import com.example.home.R
 import com.example.home.base.BaseFragment
 import com.example.home.database.entity.User
 import com.example.home.databinding.FragmentPersonalBinding
+import com.example.home.utils.Flag
 import com.example.home.utils.InjectorUtils
 
 
@@ -19,11 +23,20 @@ import com.example.home.utils.InjectorUtils
 */
 
 class PersonalFragment : BaseFragment() {
+    private lateinit var viewModel : PersonalViewModel
+
     companion object{
         fun newInstance() : PersonalFragment {
             val fragment = PersonalFragment()
             return fragment
         }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        val factory : PersonalViewModelFactory = InjectorUtils.providePersonalViewModelFactory(requireContext())
+        viewModel = ViewModelProvider(this,factory).get(PersonalViewModel::class.java)
     }
 
     override fun onCreateView(
@@ -33,16 +46,19 @@ class PersonalFragment : BaseFragment() {
     ): View {
         val binding = FragmentPersonalBinding.inflate(inflater,container,false)
 
+        binding.user = Flag.user
 
-        val factory : PersonalViewModelFactory = InjectorUtils.providePersonalViewModelFactory(requireContext())
-        val viewModel : PersonalViewModel = ViewModelProvider(this,factory).get(PersonalViewModel::class.java)
+        binding.personalPublishTimes.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putInt("type",1)
+            Navigation.findNavController(it).navigate(R.id.action_personal_to_publish_collection,bundle)
+        }
 
-        viewModel.data.observe(requireActivity(),object : Observer<User>{
-            override fun onChanged(user: User) {
-                binding.user = user
-            }
-        })
-
+        binding.personalCollectionTimes.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putInt("type",2)
+            Navigation.findNavController(it).navigate(R.id.action_personal_to_publish_collection,bundle)
+        }
 
         return binding.root
     }

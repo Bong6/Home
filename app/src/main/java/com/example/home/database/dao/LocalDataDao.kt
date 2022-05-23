@@ -2,6 +2,7 @@ package com.example.home.database.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import com.example.home.database.entity.LocalData
@@ -23,4 +24,8 @@ interface LocalDataDao {
     //查询本地数据
     @Query("select * from localdata")
     fun queryLocalData() : LiveData<List<LocalData>>
+
+    //清空数据
+    @Query("delete from localdata")
+    fun deleteLocalData()
 }

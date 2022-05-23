@@ -11,9 +11,6 @@
         android:name="com.example.home.ui.suqare.SquareFragment"
         android:label="广场"
         tools:layout="@layout/fragment_square">
-        <action
-            android:id="@+id/action_square_to_login"
-            app:destination="@id/login" />
     </fragment>
 
     <fragment
@@ -32,18 +29,22 @@
         android:id="@+id/personal"
         android:name="com.example.home.ui.personal.PersonalFragment"
         android:label="我的"
-        tools:layout="@layout/fragment_personal" />
+        tools:layout="@layout/fragment_personal" >
+        <action
+            android:id="@+id/action_personal_to_publish_collection"
+            app:destination="@id/publish_collection" />
+
+        <argument
+            android:name="type"
+            app:argType="integer"/>
+
+    </fragment>
 
     <fragment
-        android:id="@+id/login"
-        android:name="com.example.home.ui.userRelated.LoginFragment"
-        tools:label="登录"
-        tools:layout="@layout/fragment_login" />
+        android:id="@+id/publish_collection"
+        android:name="com.example.home.ui.personaldetail.PersonalPublishOrCollectionFragment"
+        tools:label="发表"
+        tools:layout="@layout/fragment_personalpublishorcollection" />
 
-    <fragment
-        android:id="@+id/register"
-        android:name="com.example.home.ui.userRelated.RegisterFragment"
-        tools:label="注册"
-        tools:layout="@layout/fragment_register" />
 
 </navigation>

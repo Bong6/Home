@@ -29,9 +29,16 @@ class PersonalRepository private constructor(private val dao : UserDao) {
         }
     }
 
-    //获取userId = 1 的用户信息
-    fun getUserId_1(): LiveData<User> {
-        return dao.queryUserId_1()
+    //注册
+    fun registerUser(user: User){
+        dao.registerUser(user)
     }
+
+    //登录
+    fun loginUser(userAccount : String,userPassword : String) : User?{
+        return dao.loginUser(userAccount,userPassword)
+    }
+
+
 
 }

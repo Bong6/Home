@@ -29,7 +29,11 @@
 
         <activity android:name=".MainActivity"
             android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <activity android:name=".ui.squaredetail.SquareDetailActivity"
@@ -39,6 +43,14 @@
         <activity android:name=".ui.encyclopediasdetail.EncyclopediasDetailActivity"
             android:exported="true"/>
 
+        <activity android:name=".ui.userRelated.UserRelatedActivity"
+            android:theme="@style/TestActivityTheme"
+            android:exported="true"
+            android:launchMode="singleTask"/>
+
+        <activity android:name=".ui.userRelated.ArticleActivity"
+            android:theme="@style/Theme.Design.NoActionBar"
+            android:exported="true"/>
 
         <!-- 为调用相机拍照设置内容提供者 -->
         <provider
@@ -60,12 +72,9 @@
         </activity>
         <activity android:name=".TestActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
+
 
 
     </application>

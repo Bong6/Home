@@ -50,7 +50,7 @@ class DataBaseActivity : AppCompatActivity() {
                 val user1 = User(
                     1,
                     "龙灯",
-                    R.mipmap.image_userphoto_1,
+                    "R.mipmap.image_userphoto_1",
                     "admin",
                     "123456",
                     "2022-04-01",
@@ -117,22 +117,7 @@ class DataBaseActivity : AppCompatActivity() {
             }
         }
 
-        binding.buttonQueryUsercollectionandpublishLocaldata.setOnClickListener {
-            thread {
-                val list = userCollectionAndPublishDao.queryUserCollectionRecord_LocalData()
-                for (a in list){
-                    Log.d("javed",a.toString())
-                }
-            }
-        }
 
-        binding.buttonQueryUsercollectionandpublishKnowledge.setOnClickListener {
-            thread {
-                val list = userCollectionAndPublishDao.queryUserCollectionRecord_EncyclopediaKnowledge()
-                for (a in list){
-                    Log.d("javed",a.toString())
-                }
-            }
-        }
+
     }
 }

@@ -9,21 +9,10 @@
     </data>
 
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/square_rcv"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-<!--        <com.google.android.material.floatingactionbutton.FloatingActionButton-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_gravity="bottom|end"-->
-<!--            android:layout_marginEnd="16dp"-->
-<!--            android:layout_marginBottom="28sp"-->
-<!--            android:src="@drawable/ic_launcher_background"-->
-<!--            app:layout_behavior="com.example.home.utils.FabScrollBehavior"-->
-<!--            app:elevation="8dp" />-->
-
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/square_rcv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 
 </layout>

@@ -15,10 +15,12 @@
     </style>
 
 
-    <style name="Theme.HomeNoActionBar" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.HomeNoActionBar" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">#db5860</item>
-        <item name="colorPrimaryVariant">#ffe866</item>
+        <!--标题栏 -->
+        <item name="colorPrimary">#b7cbbe</item>
+        <!--应用栏 -->
+        <item name="colorPrimaryVariant">#b7cbbe</item>
         <item name="colorOnPrimary">#59a869</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">#4285f4</item>

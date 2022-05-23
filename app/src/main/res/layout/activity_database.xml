@@ -9,7 +9,9 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="@+id/button_query_usercollectionandpublish_localdata"
+        app:layout_constraintStart_toEndOf="@+id/button_query_usercollectionandpublish_localdata">
 
 
         <Button
@@ -111,6 +113,7 @@
             android:layout_marginTop="116dp"
             android:text="查询用户收藏的本地数据"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.112"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/button_localdata_query" />
 
@@ -118,9 +121,10 @@
             android:id="@+id/button_query_usercollectionandpublish_knowledge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:text="查询用户收藏的百科数据"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.112"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/button_query_usercollectionandpublish_localdata" />
 
@@ -133,6 +137,16 @@
             android:text="查询用户收藏数据"
             app:layout_constraintEnd_toEndOf="@+id/button_insert_usercollectionandpublish"
             app:layout_constraintTop_toBottomOf="@+id/button_insert_usercollectionandpublish" />
+
+        <Button
+            android:id="@+id/button_query_user_publish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="64dp"
+            android:layout_marginBottom="80dp"
+            android:text="Button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/button_query_usercollectionandpublish_localdata" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

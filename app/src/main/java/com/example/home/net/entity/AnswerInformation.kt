@@ -12,7 +12,7 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class AnswerInformation(
     var answerName : String,
-    var answerPhoto : Long,
+    var answerPhoto : String,
     var answerDescribe : String,
     var answerTime : String
 )  : Parcelable {

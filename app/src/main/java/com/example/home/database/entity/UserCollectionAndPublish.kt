@@ -34,7 +34,7 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "usercollectionandpublish")
 class UserCollectionAndPublish(){
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "collectandpublish_id",typeAffinity = ColumnInfo.INTEGER)
     var collectandpublish_id : Int = 0
     @ColumnInfo(name = "collectandpublish_type",typeAffinity = ColumnInfo.INTEGER)
@@ -48,7 +48,19 @@ class UserCollectionAndPublish(){
 
 
     constructor(
-        collectandpublish_id: Int,
+        collectandpublish_type: Int,
+        localorknowledge_type : Int,
+        foreignkey_id: Int,
+        userId: Int,
+    ) : this() {
+        this.collectandpublish_type = collectandpublish_type
+        this.localorknowledge_type = localorknowledge_type
+        this.foreignkey_id = foreignkey_id
+        this.userId = userId
+    }
+
+    constructor(
+        collectandpublish_id : Int,
         collectandpublish_type: Int,
         localorknowledge_type : Int,
         foreignkey_id: Int,

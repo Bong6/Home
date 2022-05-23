@@ -2,10 +2,10 @@ package com.example.home.utils
 
 import android.content.Context
 import com.example.home.database.AppDatabase
-import com.example.home.repository.EncyclopediasRepository
-import com.example.home.repository.LocalDataRepository
-import com.example.home.repository.PersonalRepository
+import com.example.home.repository.*
 import com.example.home.ui.encyclopedias.EncyclopediasViewModelFactory
+import com.example.home.ui.encyclopediasdetail.EncyclopediasDetailViewModelFactory
+import com.example.home.ui.personaldetail.PersonalPublishOrCollectionViewModelFactory
 import com.example.home.ui.personal.PersonalViewModelFactory
 import com.example.home.ui.suqare.SquareViewModelFactory
 
@@ -60,5 +60,30 @@ class InjectorUtils {
             val repository = getPersonalRepository(context)
             return PersonalViewModelFactory(repository)
         }
+
+        //获取用户发表/收藏的Personal仓库
+        fun getPersonalPublishOrCollectionRepository(context: Context) : PersonalPublishOrCollectionRepository {
+            val userCollectionAndPublishDao = AppDatabase.getDatabase(context).userCollectionAndPublishDao()
+            return PersonalPublishOrCollectionRepository.getInstance(userCollectionAndPublishDao)
+        }
+
+        //获取用户信息Personal的ViewModel工厂
+        fun providePersonalPublishOrCollectionViewModelFactory(context: Context) : PersonalPublishOrCollectionViewModelFactory {
+            val repository = getPersonalPublishOrCollectionRepository(context)
+            return PersonalPublishOrCollectionViewModelFactory(repository)
+        }
+
+        //获取用户发表/收藏的EncyclopediasDetail仓库
+        fun getEncyclopediasDetailRepository(context: Context) : EncyclopediasDetailRepository {
+            val userCollectionAndPublishDao = AppDatabase.getDatabase(context).userCollectionAndPublishDao()
+            return EncyclopediasDetailRepository.getInstance(userCollectionAndPublishDao)
+        }
+
+        //获取用户发表/收藏的EncyclopediasDetail的ViewModel工厂
+        fun provideEncyclopediasDetailViewModelFactory(context: Context) : EncyclopediasDetailViewModelFactory {
+            val repository = getEncyclopediasDetailRepository(context)
+            return EncyclopediasDetailViewModelFactory(repository)
+        }
+
     }
 }

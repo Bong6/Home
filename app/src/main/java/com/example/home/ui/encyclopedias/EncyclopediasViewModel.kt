@@ -25,4 +25,9 @@ class EncyclopediasViewModel() : ViewModel() {
         data = repository.getEncyclopediaKnowledge()
     }
 
+    //查询某一疾病信息
+    fun queryExactlyEncyclopediaknowledge(sickName : String) : EncyclopediaKnowledge?{
+        return repository.queryExactlyEncyclopediaknowledge(sickName)
+    }
+
 }

@@ -16,4 +16,8 @@ interface GetInformationAPI {
     @GET("/top/list?idx=0")
     fun getAction() : Call<NetLocalData>
 
+
+    @GET("get_data.json")
+    fun getLocalData() : Call<NetLocalData>
+
 }

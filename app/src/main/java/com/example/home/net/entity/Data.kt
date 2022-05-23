@@ -9,17 +9,13 @@ package com.example.home.net.entity
 
 data class Data(
     var recordId : Int,
-    var imageId : Long,
-    var userId : Int ,
-    var userPhoto : Long,
+    var imageId : String,
+    var userId : String ,
+    var userPhoto : String,
     var userName : String,
     var time : String,
     var title : String,
     var describe : String,
     var answerInformation : List<AnswerInformation>
 ) {
-
-
-
-
 }

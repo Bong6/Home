@@ -2,18 +2,18 @@ package com.example.home.ui.encyclopedias
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.example.home.MainActivity
 import com.example.home.base.BaseFragment
 import com.example.home.database.entity.EncyclopediaKnowledge
 import com.example.home.databinding.FragmentEncyclopediasBinding
 import com.example.home.ui.encyclopediasdetail.EncyclopediasDetailActivity
 import com.example.home.utils.InjectorUtils
+import kotlin.concurrent.thread
 
 
 /*
@@ -44,25 +44,81 @@ class EncyclopediasFragment : BaseFragment() {
         val viewModelFactory : EncyclopediasViewModelFactory = InjectorUtils.provideEncyclopediaViewModelFactory(requireContext())
         val viewModel : EncyclopediasViewModel = ViewModelProvider(this,viewModelFactory).get(EncyclopediasViewModel::class.java)
 
+        //更新服务器最新数据
         viewModel.data.observe(requireActivity(),object : Observer<List<EncyclopediaKnowledge>>{
             override fun onChanged(list: List<EncyclopediaKnowledge>?) {
                 this@EncyclopediasFragment.list = list
-                binding.knowledge = list?.last()
+                binding.knowledge = list?.first()
             }
-
         })
 
 
-        //点击事件
-        binding.click = object : View.OnClickListener{
+        //点击查看服务器推送详情
+        binding.encyclopediasCardview.setOnClickListener {
+            val intent = Intent(requireContext(),EncyclopediasDetailActivity::class.java)
+            val bundle = Bundle()
+            bundle.putParcelable("knowledge",list?.first())
+            intent.putExtra("bundle",bundle)
+            requireContext().startActivity(intent)
+        }
+
+        //数据库检索
+        binding.click = object : View.OnClickListener {
             override fun onClick(p0: View?) {
-                val intent = Intent(requireContext(),EncyclopediasDetailActivity::class.java)
-                val bundle = Bundle()
-                bundle.putParcelable("knowledge",list?.last())
-                intent.putExtra("bundle",bundle)
-                requireContext().startActivity(intent)
+                Log.d("javed","111")
+            thread {
+                val sickName = binding.encyclopediasEdittext.text.toString()
+                val queryExactlyEncyclopediaknowledge =
+                    viewModel.queryExactlyEncyclopediaknowledge(sickName)
+
+                queryExactlyEncyclopediaknowledge?.let {
+
+                    val intent = Intent(requireContext(),EncyclopediasDetailActivity::class.java)
+                    val bundle = Bundle()
+                    bundle.putParcelable("knowledge",it)
+                    intent.putExtra("bundle",bundle)
+                    requireContext().startActivity(intent)
+
+                }?: Log.d("javed","not find")
+            }
+
+        }
+//        binding.encyclopediasFind.setOnClickListener {
+//            thread {
+//                val sickName = binding.encyclopediasEdittext.text.toString()
+//                val queryExactlyEncyclopediaknowledge =
+//                    viewModel.queryExactlyEncyclopediaknowledge(sickName)
+//
+//                if(queryExactlyEncyclopediaknowledge != null){
+//                    Log.d("javed",queryExactlyEncyclopediaknowledge.sickName)
+//                    Log.d("javed","success")
+//                }else{
+//                    Log.d("javed","not find")
+//                }
+////                queryExactlyEncyclopediaknowledge?.let {
+////                    Log.d("javed",queryExactlyEncyclopediaknowledge.sickName)
+////                    Log.d("javed","success")
+////                }?: Log.d("javed","not find")
+//            }
+        }
+
+
+
+        //查看功能
+        binding.encyclopediasFind.setOnClickListener {
+            val text = binding.encyclopediasEdittext.text.toString()
+            thread {
+//                val encyclopediaKnowledge : EncyclopediaKnowledge ?= viewModel.queryExactlyEncyclopediaknowledge(text)
+//                encyclopediaKnowledge?.let {
+//                    val intent = Intent(requireContext(),EncyclopediasDetailActivity::class.java)
+//                    val bundle = Bundle()
+//                    bundle.putParcelable("encyclopediaKnowledge",encyclopediaKnowledge)
+//                    intent.putExtra("bundle",bundle)
+//                    requireActivity().startActivity(intent)
+//                }?: requireContext().
             }
         }
+
 
         return binding.root
     }

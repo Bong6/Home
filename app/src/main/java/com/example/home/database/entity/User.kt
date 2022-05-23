@@ -31,8 +31,8 @@ class User(
     var userId : Int = 0
     @ColumnInfo(name = "userName",typeAffinity = ColumnInfo.TEXT)
     var userName : String = ""
-    @ColumnInfo(name = "userPhoto",typeAffinity = ColumnInfo.INTEGER)
-    var userPhoto : Int = 0
+    @ColumnInfo(name = "userPhoto",typeAffinity = ColumnInfo.TEXT)
+    var userPhoto : String = "R.drawable.icon_personal_defaultphoto"
     @ColumnInfo(name = "userAccount",typeAffinity = ColumnInfo.TEXT)
     var userAccount : String = ""
     @ColumnInfo(name = "userPassword",typeAffinity = ColumnInfo.TEXT)
@@ -49,7 +49,7 @@ class User(
     constructor(
         userId: Int,
         userName: String,
-        userPhoto: Int,
+        userPhoto: String,
         userAccount: String,
         userPassword: String,
         registerTime: String,

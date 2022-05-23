@@ -9,6 +9,8 @@
             type="com.example.home.database.entity.User" />
 
         <import type="com.example.home.utils.Flag"/>
+        
+        <import type="com.example.home.R"/>
     </data>
 
     <RelativeLayout
@@ -29,7 +31,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="0dp"
                 android:layout_marginEnd="0dp"
-                app:setImageSrcNormal="@{Flag.INSTANCE.bgAllOcean}"/>
+                app:setImageSrcNormal="@{R.mipmap.bg_all_ocean}"/>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -64,7 +66,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="16sp"
-                        android:text="@{user.userName}"
+                        android:text='@{user==null?"请登录":user.userName}'
                         android:layout_toRightOf="@+id/user_photo"
                         android:layout_marginTop="30dp"
                         android:layout_marginLeft="10dp" />
@@ -73,7 +75,7 @@
                         android:id="@+id/user_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@{user.registerTime}"
+                        android:text='@{user==null?" ":user.registerTime}'
                         android:layout_toRightOf="@+id/user_photo"
                         android:layout_below="@+id/user_name"
                         android:textSize="12sp"
@@ -96,7 +98,7 @@
                                 android:id="@+id/personal_publish_times"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@{String.valueOf(user.publishAccount)}"
+                                android:text='@{user==null?"0":String.valueOf(user.publishAccount)}'
                                 android:layout_gravity="center"
                                 android:layout_marginTop="20dp" />
 
@@ -118,7 +120,7 @@
                                 android:id="@+id/personal_collection_times"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@{String.valueOf(user.collectionAccount)}"
+                                android:text='@{user==null?"0":String.valueOf(user.collectionAccount)}'
                                 android:layout_gravity="center"
                                 android:layout_marginTop="20dp" />
 
@@ -140,7 +142,7 @@
                                 android:id="@+id/personal_scanning_times"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@{String.valueOf(user.scanningAccount)}"
+                                android:text='@{user==null?"0":String.valueOf(user.scanningAccount)}'
                                 android:layout_gravity="center"
                                 android:layout_marginTop="20dp" />
 

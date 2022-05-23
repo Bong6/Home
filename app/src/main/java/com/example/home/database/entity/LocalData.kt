@@ -30,12 +30,12 @@ class LocalData (
    @PrimaryKey
    @ColumnInfo(name = "recordId",typeAffinity = ColumnInfo.INTEGER)
    var recordId : Int,
-   @ColumnInfo(name = "imageId",typeAffinity = ColumnInfo.INTEGER)
-   var imageId : Int,
-   @ColumnInfo(name = "userId",typeAffinity = ColumnInfo.INTEGER)
-   var userId : Int,
-   @ColumnInfo(name = "userPhoto",typeAffinity = ColumnInfo.INTEGER)
-   var userPhoto : Int,
+   @ColumnInfo(name = "imageId",typeAffinity = ColumnInfo.TEXT)
+   var imageId : String,
+   @ColumnInfo(name = "userId",typeAffinity = ColumnInfo.TEXT)
+   var userId : String,
+   @ColumnInfo(name = "userPhoto",typeAffinity = ColumnInfo.TEXT)
+   var userPhoto : String,
    @ColumnInfo(name = "userName",typeAffinity = ColumnInfo.TEXT)
    var userName : String,
    @ColumnInfo(name = "time",typeAffinity = ColumnInfo.TEXT)

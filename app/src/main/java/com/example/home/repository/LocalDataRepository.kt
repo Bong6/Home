@@ -38,5 +38,8 @@ class LocalDataRepository private constructor(private val dao : LocalDataDao) {
         return dao.queryLocalData()
     }
 
-
+    //清空数据
+    fun deleteLocalData(){
+        dao.deleteLocalData()
+    }
 }

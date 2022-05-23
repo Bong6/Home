@@ -30,8 +30,8 @@ class EncyclopediaKnowledge(
     @PrimaryKey
     @ColumnInfo(name = "encyclopediaknowledge_id",typeAffinity = ColumnInfo.INTEGER)
     var encyclopediaknowledge_id : Int,
-    @ColumnInfo(name = "imageId",typeAffinity = ColumnInfo.INTEGER)
-    var imageId : Int,
+    @ColumnInfo(name = "imageId",typeAffinity = ColumnInfo.TEXT)
+    var imageId : String,
     @ColumnInfo(name = "sickName",typeAffinity = ColumnInfo.TEXT)
     var sickName : String,
     @ColumnInfo(name = "symptom",typeAffinity = ColumnInfo.TEXT)
